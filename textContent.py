@@ -29,7 +29,6 @@ def getRandomSubmission():
         submissions.append(submission.selftext)
     
     randomSubmission = random.choice(submissions)
+    print(randomSubmission)
 
     return randomSubmission
-
-print(getRandomSubmission())
