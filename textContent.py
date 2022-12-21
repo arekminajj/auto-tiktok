@@ -26,9 +26,18 @@ def getRandomSubreddit():
 def getRandomSubmission():
     subreddit = getRandomSubreddit()
     for submission in reddit.subreddit(subreddit).hot(limit=25):
-        submissions.append(submission.selftext)
+        submissions.append({
+            "subreddit": subreddit,
+            "author": submission.author.name,
+            "title": submission.title,
+            "text": submission.selftext
+        })
     
     randomSubmission = random.choice(submissions)
+
+    while len(randomSubmission['text']) < 200 and len(randomSubmission['text']) > 1000:
+        randomSubmission = random.choice(submissions)
+
     print(randomSubmission)
 
     return randomSubmission
