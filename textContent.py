@@ -35,7 +35,7 @@ def getRandomSubmission():
     
     randomSubmission = random.choice(submissions)
 
-    while len(randomSubmission['text']) < 200 and len(randomSubmission['text']) > 1000:
+    while len(randomSubmission['text']) < 200 or len(randomSubmission['text']) > 1500:
         randomSubmission = random.choice(submissions)
 
     print(randomSubmission)
