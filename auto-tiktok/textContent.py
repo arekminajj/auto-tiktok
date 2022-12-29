@@ -1,6 +1,7 @@
 import praw
 import random
 from decouple import config
+import filter
 
 submissions = []
 
@@ -15,13 +16,18 @@ reddit = praw.Reddit(
 subreddits = [
     'AmItheAsshole',
     'confession',
-    'nosleep'
+    'nosleep',
+    'TrueOffMyChest',
+    'pettyrevenge',
+    'ProRevenge'
 ]
+
 
 def getRandomSubreddit():
     randomSubreddit = random.choice(subreddits)
 
     return randomSubreddit
+
 
 def getRandomSubmission():
     subreddit = getRandomSubreddit()
@@ -32,11 +38,12 @@ def getRandomSubmission():
             "title": submission.title,
             "text": submission.selftext
         })
-    
+
     randomSubmission = random.choice(submissions)
 
-    while len(randomSubmission['text']) < 200 or len(randomSubmission['text']) > 1500:
-        randomSubmission = random.choice(submissions)
+    randomSubmission['text'] = filter.removeUrlsFromText(
+        randomSubmission['text'])
+    randomSubmission['text'] = randomSubmission['text'][:1500]
 
     print(randomSubmission)
 
