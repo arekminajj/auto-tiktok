@@ -11,5 +11,6 @@ def deleteFiles():
     for file in files_to_remove:
         try:
             os.remove(file)
+            print('File: ' + file + ' has been removed')
         except FileNotFoundError:
             pass
