@@ -1,5 +1,6 @@
 *.env
 *.mp3
 *.mp4
+*.srt
 __pycache__/
 googlecloudkey.json
