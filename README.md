@@ -6,6 +6,6 @@ Script for automatic posting TikTok videos.
 - [x] Fix text to speech
 - [x] render subtitles on the video
 - [x] center the lyrics verticaly
-- [ ] cut video to make it same length as voice
+- [x] cut video to make it same length as voice
 - [ ] post video to tik tok
 - [ ] add screenshot of the post on the start of the video
